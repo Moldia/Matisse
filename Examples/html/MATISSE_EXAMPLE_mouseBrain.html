@@ -1,0 +1,497 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB R2019b"><title>Matisse example for Mouse Brain </title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S2 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S5 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S6 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { margin: 15px 10px 5px 4px; padding: 0px; line-height: 18px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 17px; font-weight: 700; text-align: left;  }
+.S8 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S9 { color: rgb(64, 64, 64); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 16.996px;  }
+.embeddedOutputsErrorElement {min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+.embeddedOutputsWarningElement{min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+.diagnosticMessage-wrapper {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {color: rgb(255,100,0); text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {color: rgb(230,0,0); text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {white-space: pre; word-wrap: initial; min-height: 18px; max-height: 250px; overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {min-height: 16px;}
+.rightPaneElement .textElement {padding-top: 2px; padding-left: 9px;}
+.S10 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 6px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S11 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(60, 60, 60); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span style=' font-weight: bold;'>Matisse example for Mouse Brain </span></h1><div  class = 'S1'><span>We create a SPOTS1 file that contains the information of one sample</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>decoded_file = </span><span style="color: rgb(218, 179, 255);">'K:\MATISSE\data\mousebrain\QT_0.2_details_noNNNN.csv'</span><span>;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>image = [</span><span style="color: rgb(218, 179, 255);">'K:\MATISSE\data\mousebrain\wholeimage.tif'</span><span>];   </span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>scale=0.2; </span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>SPOTS1=ISS_getspots(decoded_file);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>SPOTS1.image=image;</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>SPOTS1.scale=scale;</span></span></div></div></div><div  class = 'S5'><span>And then we combine them into a big object (note that if you have added more samples you need to add them here as well)</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>ALLSPOTS.SPOTS1=SPOTS1;</span></span></div></div></div><h3  class = 'S7'><span style=' font-weight: bold;'>Format ALLSSPOTS in good format</span></h3><div  class = 'S1'><span>We use 'fill_matisse' to format the ALLSPOTS in the SPOTS object. </span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S8'><span style="white-space: pre;"><span>SPOTS=fill_matisse(ALLSPOTS);</span></span></div><div  class = 'S9'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement scrollableOutput" uid="78DBF761" data-testid="output_0" data-width="420" data-height="754" data-hashorizontaloverflow="false" style="width: 450px; max-height: 261px;"><div class="textElement"><div><span class="variableNameElement">SPOTS = </span></div><div>  matisseMOD with properties:
+
+                                 Graphics: 1
+                                 spotname: []
+                                 location: []
+                                   sample: []
+                                   domain: []
+                                sample_ID: []
+                                   images: []
+                                    scale: []
+                         expressionmatrix: []
+                          expressionnames: []
+                              centroidpos: {}
+                                 Cellmaps: {}
+                               centroidID: {}
+            GeneDensity_Genes_of_interest: {}
+                    GeneDensity_bandwidth: 300
+                     GeneDensity_colormap: [256×3 double]
+    OverlayTwoDensities_Genes_of_interest: {}
+            OverlayTwoDensities_bandwidth: 300
+             OverlayTwoDensities_colormap: [256×3 double]
+          Colocalization_number_neighbors: 3
+                            ROI_bandwidth: 300
+                          Gradients_limit: 10000
+                      Gradients_bandwidth: 200
+                       Gradients_colormap: [256×3 double]
+                 Find_gradients_bandwidth: 200
+                  Find_gradients_distance: 20
+                            Bins_distance: 5000
+                              Bins_radius: 5000
+            Principal_components_colormap: [11×3 double]
+                       FC_MIN_counts_cell: 5
+                       FC_MAX_counts_cell: 200
+                       FC_MIN_counts_gene: 20
+                                NC_method: 'log2'
+                        SpotEnvBin_radius: 100
+                                bandwidth: 200
+                              hexbin_size: 300
+                                   radius: 300
+                                 distance: 300
+                        Genes_of_interest: {}
+                                 colormap: [256×3 double]
+                          count_threshold: 5
+                     segmentation_percent: 95
+                            Clustering_ID: []
+                                 RGB_CODE: []
+                          UMAP_clustering: []
+                        pciseq_clustering: []
+                                    limit: 800
+                         CellCallRegionYX: []
+                             inefficiency: []
+</div></div></div></div></div><div class="inlineWrapper"><div  class = 'S10'><span style="white-space: pre;"><span>show_spots(SPOTS);</span></span></div></div></div><div  class = 'S1'><span style=' font-weight: bold;'>Selecting genes</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>GENES={</span><span style="color: rgb(218, 179, 255);">'Gad1'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Lamp5'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Pdgfra'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Pvalb'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Rorb'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Slc17a'</span><span>,</span><span style="color: rgb(77, 190, 238);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>    </span><span style="color: rgb(218, 179, 255);">'Car3'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Slc17a8'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Syt6'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Fa2h'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Ly86'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Ly6c2'</span><span>,</span><span style="color: rgb(77, 190, 238);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>    </span><span style="color: rgb(218, 179, 255);">'Map3k7cl'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Calb1'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Lhx6'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Neurod1'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Slc17a7'</span><span>,</span><span style="color: rgb(77, 190, 238);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>    </span><span style="color: rgb(218, 179, 255);">'Fezf2'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Cplx3'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Fam19a1'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Hs3st2'</span><span>};</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>SPOTS=gene_subset(SPOTS,GENES);</span></span></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>image_selected=1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>CORTEX_CELLS=ROI_draw_onImage(CELLS,image_selected); </span><span style="color: rgb(0, 255, 0);">%{'MTOR'}</span></span></div></div></div><h2  class = 'S11'><span style=' font-weight: bold;'>Basic plotsfunction</span></h2><div  class = 'S1'><span>We plot the GeneDensity of 1 gene</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>unique(CORTEX_SPOTS.spotname)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>cal=unique(CORTEX_ALL.spotname)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span style="color: rgb(77, 190, 238);">for </span><span>ele=1:size(cal,1)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL.Genes_of_interest=cal(ele)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL.bandwidth=300;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL.colormap=cm;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL=GeneDensity(CORTEX_ALL);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span style="color: rgb(77, 190, 238);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>colormapeditor</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gca</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>cm = get(gca,</span><span style="color: rgb(218, 179, 255);">'Colormap'</span><span>);</span></span></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>show_spots(SPOTS);</span></span></div></div></div><div  class = 'S5'><span style=' font-weight: bold;'></span></div><div  class = 'S1'><span style=' font-weight: bold;'>Overlay densities</span></div><div  class = 'S1'><span>In this case we overlay two densities</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>CORTEX_ALL.Genes_of_interest={</span><span style="color: rgb(218, 179, 255);">'Cplx3'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Lhx6'</span><span>}</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL.bandwidth=100</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL=OverlayTwoDensities(CORTEX_ALL);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL.Genes_of_interest={</span><span style="color: rgb(218, 179, 255);">'Cplx3'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Calb1'</span><span>}</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL.bandwidth=100</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL=OverlayTwoDensities(CORTEX_ALL);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL.Genes_of_interest={</span><span style="color: rgb(218, 179, 255);">'Calb1'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Lamp5'</span><span>};</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL.bandwidth=80;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL=OverlayTwoDensities(CORTEX_ALL);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div></div><div  class = 'S1'><span>Run the dissimilarity test, for each sample on the section. Varargin 1 is threshold and varargin 2 is bin size. </span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>DissimilarityTest(SPOTS);</span></span></div></div></div><div  class = 'S1'><span style=' font-weight: bold;'>This tool I do not know what it does</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>FindNeighbors_screen_randomization(SPOTS)</span></span></div></div></div><h1  class = 'S0'><span>Analysis of Cortex</span></h1><div  class = 'S1'><span>We first use ROI_draw_onImage to get a ROI. We can also add a gene of interest in 3rd position in order to select on a density map</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>image_selected=1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS=ROI_draw_onImage(SPOTS,image_selected); </span><span style="color: rgb(0, 255, 0);">%{'MTOR'}</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>image_selected=2;</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>CORTEX_SPOTS2=ROI_draw_onImage(SPOTS,image_selected); </span><span style="color: rgb(0, 255, 0);">%{'MTOR'}</span></span></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>CORTEX_SPOTS=MergeObjects(CORTEX_SPOTS,CORTEX_SPOTS2)</span></span></div></div></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span>Working with cortex spots, we generate the gradient of genes. In this case, we have select the border of the gradient. From the spots defined, it will calculate the distance.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>imagesel=1</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS.limit=10000</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS.limit=10000;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS.bandwidth=200;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>imagesel=1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>gradients(CORTEX_SPOTS,imagesel);</span></span></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>CORTEX_SPOTS2=ROI_draw_onImage(SPOTS,image_selected); </span><span style="color: rgb(0, 255, 0);">%{'MTOR'}</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>[OUTPUT]=NearNeighbors(CORTEX_SPOTS2,1,5);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS2.Genes_of_interest={</span><span style="color: rgb(218, 179, 255);">'Slc17a7'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Syt6'</span><span>}</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS2.bandwidth=30</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS2=OverlayTwoDensities(CORTEX_SPOTS2);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS2.Genes_of_interest={</span><span style="color: rgb(218, 179, 255);">'Slc17a7'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Gad1'</span><span>}</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS2.bandwidth=50</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS2=OverlayTwoDensities(CORTEX_SPOTS2);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS2.Genes_of_interest={</span><span style="color: rgb(218, 179, 255);">'Lhx6'</span><span>,</span><span style="color: rgb(218, 179, 255);">'Gad1'</span><span>}</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS2.bandwidth=80;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS2=OverlayTwoDensities(CORTEX_SPOTS2);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div></div><div  class = 'S1'><span>Then, we generate bins, saving it in CORTEX_BINS. This Matisse Object contains the Bins in the cortex. Then we appy two things. First we apply the tsneRGB, to visualize bins</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>CORTEX_SPOTS.radius=200;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS.distance=30;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_BINS=OverlappingBins(CORTEX_SPOTS);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_BINS=principal_components(CORTEX_BINS,1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span style="color: rgb(0, 255, 0);">%CORTEX_BINS=BINS;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_BINS.expressionmatrix=CORTEX_BINS.expressionmatrix./std(CORTEX_BINS.expressionmatrix);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>figure;hist(sum(CORTEX_BINS.expressionmatrix'),400);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_BINS.count_threshold=10;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>LowDimensionalRGB(CORTEX_BINS,</span><span style="color: rgb(218, 179, 255);">'umap'</span><span>,</span><span style="color: rgb(218, 179, 255);">'no'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>BINS.count_threshold=50;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>LowDimensionalRGB(BINS,</span><span style="color: rgb(218, 179, 255);">'umap'</span><span>,</span><span style="color: rgb(218, 179, 255);">'no'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_BINS=Clustering(CORTEX_BINS,15,</span><span style="color: rgb(218, 179, 255);">'hierarchical'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div></div><div  class = 'S1'><span>Then we perform clustering. We include 3 parameters. First the Matisse Object (CORTEX_BINS). The second parameters includes the number  of clusters generated. Finally we selecet the method. Wer can select 'hierarchical' or 'kmeans'.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>CORTEX_BINS=Clustering(CORTEX_BINS,20,</span><span style="color: rgb(218, 179, 255);">'hierarchical'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div></div><div  class = 'S1'><span>We then try to work with cells. For this, we fist segment nuclei and then we use the CellMap in the second function callded "define_cells" for creating the cells object</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>[SPOTS]= DAPI_segmentation(SPOTS)</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>[CELLS]= define_cells(SPOTS);</span></span></div></div></div><div  class = 'S1'><span></span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>CELLS.count_threshold=20;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>SELE=sum(CELLS.expressionmatrix')&gt;8 &amp; sum(CELLS.expressionmatrix')&lt;50; </span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CELSEL=CELLS;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CELSEL.expressionmatrix=CELSEL.expressionmatrix(SELE,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CELSEL.location=CELSEL.location(SELE,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CELSEL.sample=CELSEL.sample(SELE,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CELSEL.spotname=CELSEL.spotname(SELE,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span style="color: rgb(0, 255, 0);">%CELSEL.expressionmatrix=CELSEL.expressionmatrix./std(CELSEL.expressionmatrix);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>LowDimensionalRGB(CELSEL,</span><span style="color: rgb(218, 179, 255);">'tsne'</span><span>,</span><span style="color: rgb(218, 179, 255);">'no'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CELSEL_CLUST=Clustering(CELSEL,20,</span><span style="color: rgb(218, 179, 255);">'hierarchical'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>heatmap_cluster(CELSEL_CLUST);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_CELLS.expressionmatrix=CORTEX_CELLS.expressionmatrix./std(CORTEX_CELLS.expressionmatrix);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_CELLS1=Clustering(CORTEX_CELLS,2,</span><span style="color: rgb(218, 179, 255);">'umap'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>heatmap_cluster(CORTEX_CELLS1);</span></span></div></div></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span>Run umap allows you to perfrom UMAP. Right now, we are only using the CORTEX_CELLS.UMAP_clustering parameter. We represent the cluster</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>[UM,n,CORTEX_CELLS.UMAP_clustering]=run_umap(CORTEX_CELLS.expressionmatrix);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_CELLS.spotname=CORTEX_CELLS.UMAP_clustering';</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_CELLS.Clustering_ID=CORTEX_CELLS.UMAP_clustering';</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>figure</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>imshow(imresize(imread(CORTEX_CELLS.images{1}),1/CORTEX_CELLS.scale{1})*10)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>hold </span><span style="color: rgb(218, 179, 255);">on</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gscatter(CORTEX_CELLS.location(:,1),CORTEX_CELLS.location(:,2),CORTEX_CELLS.spotname)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_CELLS.colormap=hot;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>heatmap_cluster(CORTEX_CELLS)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>colormapeditor</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>colorm = get(gca,</span><span style="color: rgb(218, 179, 255);">'Colormap'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>figure</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gscatter(UM(:,1),UM(:,2),CORTEX_CELLS.UMAP_clustering)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span style="color: rgb(0, 255, 0);">% CORRELATION</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_CELLS.colormap=hot</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>heatmap_correlation_INPUTPRED(CORTEX_CELLS,MeanClassExp,ClassNames,GeneNames)</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div></div><div  class = 'S1'><span>We can also perform normal clustering </span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>CORTEX_CELLS=Clustering(CORTEX_CELLS,30,</span><span style="color: rgb(218, 179, 255);">'hierarchical'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>VEC=crosstab(CORTEX_CELLS.Clustering_ID,CORTEX_CELLS.UMAP_clustering);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>figure</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>heatmap(VEC,</span><span style="color: rgb(218, 179, 255);">'Colormap'</span><span>,parula,</span><span style="color: rgb(218, 179, 255);">'ColorScaling'</span><span>,</span><span style="color: rgb(218, 179, 255);">'scaledcolumns'</span><span>)</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>clustergram(VEC,</span><span style="color: rgb(218, 179, 255);">'Colormap'</span><span>,CORTEX_CELLS.colormap,</span><span style="color: rgb(218, 179, 255);">'Standardize'</span><span>,</span><span style="color: rgb(218, 179, 255);">'row'</span><span>)</span></span></div></div></div><div  class = 'S1'><span style=' font-weight: bold;'>PCISEQ</span></div><div  class = 'S1'><span>For PCISEQ we need to generate the gSet first. </span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>load </span><span style="color: rgb(218, 179, 255);">E:\pciSeq\Data\AllSections\gSetCA1all.mat</span><span>;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gSet.GeneExp=readmatrix(</span><span style="color: rgb(218, 179, 255);">'F:\HCA_09b_mouse_120genes\singleCellMatrix_2018.csv'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gSet.GeneExp;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gSet.GeneExp=gSet.GeneExp';</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gSet.GeneExp=gSet.GeneExp(3:end,:);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gSet.GeneExp=gSet.GeneExp';</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gSet.nGenes=size(gSet.GeneExp,1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gSet.nCells=size(gSet.GeneExp,2);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span style="color: rgb(0, 255, 0);">%extrainfo=readtable('C:\Users\sergio.salas\Downloads\sample-annotations\sample_annotations.csv');</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span style="color: rgb(0, 255, 0);">%gSet.CellInfo=[]</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>GENAME=readtable(</span><span style="color: rgb(218, 179, 255);">'F:\HCA_09b_mouse_120genes\gene_names_2018.csv'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gSet.GeneName=[GENAME.V1]</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CENAME=readtable(</span><span style="color: rgb(218, 179, 255);">'F:\HCA_09b_mouse_120genes\sample_name_2018.csv'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gSet.CellName=[CENAME.sample_name]'</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CLASS=readtable(</span><span style="color: rgb(218, 179, 255);">'F:\HCA_09b_mouse_120genes\sample_name_2018.csv'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gSet.Class=[CLASS.cluster]'</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div></div><div  class = 'S5'><span></span></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span></span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>CA=readtable(</span><span style="color: rgb(218, 179, 255);">'F:\HCA_09b_mouse_120genes\singleCellMatrix_2018.csv'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>GENAME=readtable(</span><span style="color: rgb(218, 179, 255);">'F:\HCA_09b_mouse_120genes\gene_names_2018.csv'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CA=CA(:,3:end);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CLASS=readtable(</span><span style="color: rgb(218, 179, 255);">'F:\HCA_09b_mouse_120genes\sample_name_2018.csv'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CA.Properties.RowNames=GENAME.V1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>writetable(CA,</span><span style="color: rgb(218, 179, 255);">'F:\HCA_09b_mouse_120genes\scMouse2018.csv'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>CA.Properties.VariableNames=CLASS.cluster;</span></span></div></div></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span>We then run PCISEQ, and save the output in a Matisse object (Cells object).</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>SPOTS.inefficiency=0.001;</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>PCISEQ=pciseq2(SPOTS,gSet);</span></span></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>PCISEQ.spotname=PCISEQ.pciseq_clustering;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>PCISEQ.Clustering_ID=PCISEQ.pciseq_clustering;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>[MeanClassExp,ClassNames,GeneNames] = expressionmat(CORTEX_SPOTS,gSet);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>heatmap_correlation_INPUTPRED(PCISEQ,MeanClassExp,ClassNames,GeneNames)</span></span></div></div></div><div  class = 'S5'><span></span></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span>We then perform dissimilarity test, Near Neighbors analysis (Colocalization) and gradients for PCISEQ</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>PCISEQ.hexbin_size=1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>PCISEQ.count_threshold=3;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>DissimilarityTest(PCISEQ)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>NearNeighbors(PCISEQ,1)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>PCISEQ.limit=12000;</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>gradients(PCISEQ,1);</span></span></div></div></div><h1  class = 'S0'><span style=' font-weight: bold;'>CORTEX 2</span></h1><div  class = 'S1'><span></span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>image_selected=1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_SPOTS=ROI_draw_onImage(SPOTS,image_selected); </span><span style="color: rgb(0, 255, 0);">%{'MTOR'}</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div></div><div  class = 'S1'><span>Working with cortex Spots</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>imagesel=1</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_SPOTS.limit=10000</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gradients(CORTEX2_SPOTS,imagesel);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>CORTEX2_SPOTS.radius=150;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_SPOTS.distance=70;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_BINS=OverlappingBins(CORTEX2_SPOTS)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>tsneRGB(CORTEX2_BINS)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_BINS.images=CORTEX2_BINS.images{1}</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>CORTEX2_BINS=Clustering(CORTEX2_BINS,20,</span><span style="color: rgb(218, 179, 255);">'hierarchical'</span><span>);</span></span></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>[CORTEX2_SPOTS]= DAPI_segmentation(SPOTS)</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>[CORTEX2_CELLS]= define_cells(CORTEX2_SPOTS);</span></span></div></div></div><div  class = 'S5'><span></span></div><div  class = 'S1'><span></span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>CORTEX2_CELLS.images=CORTEX2_CELLS.images{1}</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>[UMAPOUT,n,clusters_cortex]=run_umap(CORTEX2_CELLS.expressionmatrix);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_CELLS.spotname=clusters_cortex;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>figure</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>imshow(imresize(imread(CORTEX2_CELLS.images{1}),1/CORTEX2_CELLS.scale{1})*10)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>hold </span><span style="color: rgb(218, 179, 255);">on</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gscatter(CORTEX2_CELLS.location(:,1),CORTEX2_CELLS.location(:,2),CORTEX2_CELLS.spotname)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_CELLS.spotname=num2str(CORTEX2_CELLS.Clustering_ID)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>[CORTEX_CELLS_REDUCED,CORR_PCA]=principal_components(CORTEX2_CELLS,1)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_CELLS.images=CORTEX2_CELLS.images{1};</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_CELLS=Clustering(CORTEX2_CELLS,20,</span><span style="color: rgb(218, 179, 255);">'hierarchical'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_CELLS_REDUCED.colormap=jet(29);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_CELLS.colormap=jet(20)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>heatmap_cluster(CORTEX2_CELLS);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_CELLS.spotname=CORTEX_CELLS.spotname';</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_CELLS.images{1}=CORTEX_CELLS.images;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>NearNeighbors(CORTEX2_SPOTS,1)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_SPOTS.hexbin_size=6;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_SPOTS.count_threshold=1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>DissimilarityTest(SPOTS);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_CELLS.spotname=CORTEX2_CELLS.Clustering_ID;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_CELLS.limit=8000;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gradients(CORTEX2_CELLS,1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div></div><div  class = 'S5'><span></span></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span></span></div><div  class = 'S1'><span>Gradients</span></div><div  class = 'S1'><span></span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>CELLS.spotname=clusters;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>imagesel=1</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>gradients(CELLS,imagesel);</span></span></div></div></div><div  class = 'S1'><span>Enriched genes</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>type1=19;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>type2=14;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>imagesel=1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>fa=CORTEX2_CELLS.images</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_CELLS.images={};</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX2_CELLS.images{1}=fa</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>GLOBAL=enrichedgenes(CORTEX2_CELLS,imagesel,9,19)</span></span></div></div></div><div  class = 'S1'><span>Near Neighbors</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>NearNeighbors(CELLS,imagesel);</span></span></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>ENVIROSPOTS=SpotEnvBin(SPOTS)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div></div><h2  class = 'S11'><span>Other section</span></h2><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>[CORTEX_SPOTS]=ROI_draw_onImage(SPOTS,1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS.distance=100;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_SPOTS.bandwidth=400;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>Velocity(CORTEX_SPOTS);</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>[CORTEX_ALL]=ROI_draw_onImage(SPOTS,1);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL.bandwidth=2;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL.Genes_of_interest={</span><span style="color: rgb(218, 179, 255);">'Pvalb'</span><span>};</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>GeneDensity(CORTEX_ALL)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>densities_correlation(CORTEX_ALL,1)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL.hexbin_size=5</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORTEX_ALL.count_threshold=2</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>DissimilarityTest(CORTEX_ALL)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>CORRMATRIX=NearNeighbors(CORTEX_SPOTS,1)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>figure</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>gas=heatmap(CORRMATRIX.Properties.RowNames,CORRMATRIX.Properties.VariableNames,table2array(CORRMATRIX),</span><span style="color: rgb(218, 179, 255);">'colormap'</span><span>,</span><span style="color: rgb(77, 190, 238);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>    jet(30));</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>colormapeditor</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>colora= get(gas,</span><span style="color: rgb(218, 179, 255);">'Colormap'</span><span>);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>TAB=table2array(CORRMATRIX);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span style="color: rgb(77, 190, 238);">for </span><span>ja=1:size(CORRMATRIX,1)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span> TAB(ja,ja)=1000</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span style="color: rgb(77, 190, 238);">end</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>clustergram(TAB,</span><span style="color: rgb(218, 179, 255);">'Columnlabels'</span><span>,CORRMATRIX.Properties.VariableNames,</span><span style="color: rgb(218, 179, 255);">'Rowlabels'</span><span>,CORRMATRIX.Properties.RowNames,</span><span style="color: rgb(77, 190, 238);">...</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>    </span><span style="color: rgb(218, 179, 255);">'Colormap'</span><span>,colora)</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% *Matisse example for Mouse Brain* 
+% We create a SPOTS1 file that contains the information of one sample
+
+decoded_file = 'K:\MATISSE\data\mousebrain\QT_0.2_details_noNNNN.csv';
+image = ['K:\MATISSE\data\mousebrain\wholeimage.tif'];   
+scale=0.2; 
+SPOTS1=ISS_getspots(decoded_file);
+SPOTS1.image=image;
+SPOTS1.scale=scale;
+%% 
+% And then we combine them into a big object (note that if you have added more 
+% samples you need to add them here as well)
+
+ALLSPOTS.SPOTS1=SPOTS1;
+% *Format ALLSSPOTS in good format*
+% We use 'fill_matisse' to format the ALLSPOTS in the SPOTS object. 
+
+SPOTS=fill_matisse(ALLSPOTS);
+show_spots(SPOTS);
+%% 
+% *Selecting genes*
+
+GENES={'Gad1','Lamp5','Pdgfra','Pvalb','Rorb','Slc17a',...
+    'Car3','Slc17a8','Syt6','Fa2h','Ly86','Ly6c2',...
+    'Map3k7cl','Calb1','Lhx6','Neurod1','Slc17a7',...
+    'Fezf2','Cplx3','Fam19a1','Hs3st2'};
+SPOTS=gene_subset(SPOTS,GENES);
+%%
+image_selected=1;
+CORTEX_CELLS=ROI_draw_onImage(CELLS,image_selected); %{'MTOR'}
+%% *Basic plotsfunction*
+% We plot the GeneDensity of 1 gene
+
+unique(CORTEX_SPOTS.spotname)
+
+cal=unique(CORTEX_ALL.spotname)
+for ele=1:size(cal,1)
+CORTEX_ALL.Genes_of_interest=cal(ele)
+CORTEX_ALL.bandwidth=300;
+CORTEX_ALL.colormap=cm;
+CORTEX_ALL=GeneDensity(CORTEX_ALL);
+end
+
+
+colormapeditor
+gca
+cm = get(gca,'Colormap');
+%%
+show_spots(SPOTS);
+%% 
+% 
+%% 
+% *Overlay densities*
+% 
+% In this case we overlay two densities
+
+CORTEX_ALL.Genes_of_interest={'Cplx3','Lhx6'}
+CORTEX_ALL.bandwidth=100
+CORTEX_ALL=OverlayTwoDensities(CORTEX_ALL);
+
+CORTEX_ALL.Genes_of_interest={'Cplx3','Calb1'}
+CORTEX_ALL.bandwidth=100
+CORTEX_ALL=OverlayTwoDensities(CORTEX_ALL);
+
+
+CORTEX_ALL.Genes_of_interest={'Calb1','Lamp5'};
+CORTEX_ALL.bandwidth=80;
+CORTEX_ALL=OverlayTwoDensities(CORTEX_ALL);
+
+
+
+%% 
+% Run the dissimilarity test, for each sample on the section. Varargin 1 is 
+% threshold and varargin 2 is bin size. 
+
+DissimilarityTest(SPOTS);
+%% 
+% *This tool I do not know what it does*
+
+FindNeighbors_screen_randomization(SPOTS)
+%% Analysis of Cortex
+% We first use ROI_draw_onImage to get a ROI. We can also add a gene of interest 
+% in 3rd position in order to select on a density map
+
+image_selected=1;
+CORTEX_SPOTS=ROI_draw_onImage(SPOTS,image_selected); %{'MTOR'}
+image_selected=2;
+CORTEX_SPOTS2=ROI_draw_onImage(SPOTS,image_selected); %{'MTOR'}
+%%
+CORTEX_SPOTS=MergeObjects(CORTEX_SPOTS,CORTEX_SPOTS2)
+%% 
+% 
+% 
+% Working with cortex spots, we generate the gradient of genes. In this case, 
+% we have select the border of the gradient. From the spots defined, it will calculate 
+% the distance.
+
+imagesel=1
+CORTEX_SPOTS.limit=10000
+CORTEX_SPOTS.limit=10000;
+CORTEX_SPOTS.bandwidth=200;
+imagesel=1;
+
+gradients(CORTEX_SPOTS,imagesel);
+%%
+CORTEX_SPOTS2=ROI_draw_onImage(SPOTS,image_selected); %{'MTOR'}
+[OUTPUT]=NearNeighbors(CORTEX_SPOTS2,1,5);
+CORTEX_SPOTS2.Genes_of_interest={'Slc17a7','Syt6'}
+CORTEX_SPOTS2.bandwidth=30
+CORTEX_SPOTS2=OverlayTwoDensities(CORTEX_SPOTS2);
+CORTEX_SPOTS2.Genes_of_interest={'Slc17a7','Gad1'}
+CORTEX_SPOTS2.bandwidth=50
+CORTEX_SPOTS2=OverlayTwoDensities(CORTEX_SPOTS2);
+
+CORTEX_SPOTS2.Genes_of_interest={'Lhx6','Gad1'}
+CORTEX_SPOTS2.bandwidth=80;
+CORTEX_SPOTS2=OverlayTwoDensities(CORTEX_SPOTS2);
+
+%% 
+% Then, we generate bins, saving it in CORTEX_BINS. This Matisse Object contains 
+% the Bins in the cortex. Then we appy two things. First we apply the tsneRGB, 
+% to visualize bins
+
+CORTEX_SPOTS.radius=200;
+CORTEX_SPOTS.distance=30;
+CORTEX_BINS=OverlappingBins(CORTEX_SPOTS);
+CORTEX_BINS=principal_components(CORTEX_BINS,1);
+%CORTEX_BINS=BINS;
+CORTEX_BINS.expressionmatrix=CORTEX_BINS.expressionmatrix./std(CORTEX_BINS.expressionmatrix);
+figure;hist(sum(CORTEX_BINS.expressionmatrix'),400);
+CORTEX_BINS.count_threshold=10;
+LowDimensionalRGB(CORTEX_BINS,'umap','no');
+BINS.count_threshold=50;
+LowDimensionalRGB(BINS,'umap','no');
+CORTEX_BINS=Clustering(CORTEX_BINS,15,'hierarchical');
+
+%% 
+% Then we perform clustering. We include 3 parameters. First the Matisse Object 
+% (CORTEX_BINS). The second parameters includes the number  of clusters generated. 
+% Finally we selecet the method. Wer can select 'hierarchical' or 'kmeans'.
+
+CORTEX_BINS=Clustering(CORTEX_BINS,20,'hierarchical');
+
+%% 
+% We then try to work with cells. For this, we fist segment nuclei and then 
+% we use the CellMap in the second function callded "define_cells" for creating 
+% the cells object
+
+[SPOTS]= DAPI_segmentation(SPOTS)
+[CELLS]= define_cells(SPOTS);
+%% 
+% 
+
+CELLS.count_threshold=20;
+SELE=sum(CELLS.expressionmatrix')>8 & sum(CELLS.expressionmatrix')<50; 
+CELSEL=CELLS;
+CELSEL.expressionmatrix=CELSEL.expressionmatrix(SELE,:);
+CELSEL.location=CELSEL.location(SELE,:);
+CELSEL.sample=CELSEL.sample(SELE,:);
+CELSEL.spotname=CELSEL.spotname(SELE,:);
+%CELSEL.expressionmatrix=CELSEL.expressionmatrix./std(CELSEL.expressionmatrix);
+LowDimensionalRGB(CELSEL,'tsne','no');
+CELSEL_CLUST=Clustering(CELSEL,20,'hierarchical');
+heatmap_cluster(CELSEL_CLUST);
+
+CORTEX_CELLS.expressionmatrix=CORTEX_CELLS.expressionmatrix./std(CORTEX_CELLS.expressionmatrix);
+CORTEX_CELLS1=Clustering(CORTEX_CELLS,2,'umap');
+heatmap_cluster(CORTEX_CELLS1);
+%% 
+% 
+% 
+% Run umap allows you to perfrom UMAP. Right now, we are only using the CORTEX_CELLS.UMAP_clustering 
+% parameter. We represent the cluster
+
+[UM,n,CORTEX_CELLS.UMAP_clustering]=run_umap(CORTEX_CELLS.expressionmatrix);
+CORTEX_CELLS.spotname=CORTEX_CELLS.UMAP_clustering';
+CORTEX_CELLS.Clustering_ID=CORTEX_CELLS.UMAP_clustering';
+figure
+imshow(imresize(imread(CORTEX_CELLS.images{1}),1/CORTEX_CELLS.scale{1})*10)
+hold on
+gscatter(CORTEX_CELLS.location(:,1),CORTEX_CELLS.location(:,2),CORTEX_CELLS.spotname)
+
+CORTEX_CELLS.colormap=hot;
+heatmap_cluster(CORTEX_CELLS)
+colormapeditor
+colorm = get(gca,'Colormap');
+figure
+gscatter(UM(:,1),UM(:,2),CORTEX_CELLS.UMAP_clustering)
+% CORRELATION
+CORTEX_CELLS.colormap=hot
+heatmap_correlation_INPUTPRED(CORTEX_CELLS,MeanClassExp,ClassNames,GeneNames)
+
+%% 
+% We can also perform normal clustering 
+
+CORTEX_CELLS=Clustering(CORTEX_CELLS,30,'hierarchical');
+VEC=crosstab(CORTEX_CELLS.Clustering_ID,CORTEX_CELLS.UMAP_clustering);
+
+figure
+heatmap(VEC,'Colormap',parula,'ColorScaling','scaledcolumns')
+clustergram(VEC,'Colormap',CORTEX_CELLS.colormap,'Standardize','row')
+%% 
+% *PCISEQ*
+% 
+% For PCISEQ we need to generate the gSet first. 
+
+load E:\pciSeq\Data\AllSections\gSetCA1all.mat;
+gSet.GeneExp=readmatrix('F:\HCA_09b_mouse_120genes\singleCellMatrix_2018.csv');
+gSet.GeneExp;
+gSet.GeneExp=gSet.GeneExp';
+gSet.GeneExp=gSet.GeneExp(3:end,:);
+gSet.GeneExp=gSet.GeneExp';
+gSet.nGenes=size(gSet.GeneExp,1);
+gSet.nCells=size(gSet.GeneExp,2);
+%extrainfo=readtable('C:\Users\sergio.salas\Downloads\sample-annotations\sample_annotations.csv');
+%gSet.CellInfo=[]
+GENAME=readtable('F:\HCA_09b_mouse_120genes\gene_names_2018.csv');
+gSet.GeneName=[GENAME.V1]
+CENAME=readtable('F:\HCA_09b_mouse_120genes\sample_name_2018.csv');
+gSet.CellName=[CENAME.sample_name]'
+CLASS=readtable('F:\HCA_09b_mouse_120genes\sample_name_2018.csv');
+gSet.Class=[CLASS.cluster]'
+
+%% 
+% 
+% 
+% 
+% 
+% 
+%% 
+% 
+
+CA=readtable('F:\HCA_09b_mouse_120genes\singleCellMatrix_2018.csv');
+GENAME=readtable('F:\HCA_09b_mouse_120genes\gene_names_2018.csv');
+CA=CA(:,3:end);
+CLASS=readtable('F:\HCA_09b_mouse_120genes\sample_name_2018.csv');
+CA.Properties.RowNames=GENAME.V1;
+writetable(CA,'F:\HCA_09b_mouse_120genes\scMouse2018.csv');
+CA.Properties.VariableNames=CLASS.cluster;
+%% 
+% 
+% 
+% We then run PCISEQ, and save the output in a Matisse object (Cells object).
+
+SPOTS.inefficiency=0.001;
+PCISEQ=pciseq2(SPOTS,gSet);
+%%
+PCISEQ.spotname=PCISEQ.pciseq_clustering;
+PCISEQ.Clustering_ID=PCISEQ.pciseq_clustering;
+
+[MeanClassExp,ClassNames,GeneNames] = expressionmat(CORTEX_SPOTS,gSet);
+heatmap_correlation_INPUTPRED(PCISEQ,MeanClassExp,ClassNames,GeneNames)
+%% 
+% 
+%% 
+% 
+% 
+% 
+% 
+% We then perform dissimilarity test, Near Neighbors analysis (Colocalization) 
+% and gradients for PCISEQ
+
+PCISEQ.hexbin_size=1;
+PCISEQ.count_threshold=3;
+DissimilarityTest(PCISEQ)
+NearNeighbors(PCISEQ,1)
+PCISEQ.limit=12000;
+gradients(PCISEQ,1);
+%% *CORTEX 2*
+% 
+
+image_selected=1;
+CORTEX2_SPOTS=ROI_draw_onImage(SPOTS,image_selected); %{'MTOR'}
+
+%% 
+% Working with cortex Spots
+
+imagesel=1
+CORTEX2_SPOTS.limit=10000
+gradients(CORTEX2_SPOTS,imagesel);
+
+%%
+CORTEX2_SPOTS.radius=150;
+CORTEX2_SPOTS.distance=70;
+CORTEX2_BINS=OverlappingBins(CORTEX2_SPOTS)
+tsneRGB(CORTEX2_BINS)
+CORTEX2_BINS.images=CORTEX2_BINS.images{1}
+CORTEX2_BINS=Clustering(CORTEX2_BINS,20,'hierarchical');
+%%
+[CORTEX2_SPOTS]= DAPI_segmentation(SPOTS)
+[CORTEX2_CELLS]= define_cells(CORTEX2_SPOTS);
+%% 
+% 
+%% 
+% 
+
+CORTEX2_CELLS.images=CORTEX2_CELLS.images{1}
+[UMAPOUT,n,clusters_cortex]=run_umap(CORTEX2_CELLS.expressionmatrix);
+CORTEX2_CELLS.spotname=clusters_cortex;
+
+figure
+imshow(imresize(imread(CORTEX2_CELLS.images{1}),1/CORTEX2_CELLS.scale{1})*10)
+hold on
+gscatter(CORTEX2_CELLS.location(:,1),CORTEX2_CELLS.location(:,2),CORTEX2_CELLS.spotname)
+
+CORTEX2_CELLS.spotname=num2str(CORTEX2_CELLS.Clustering_ID)
+[CORTEX_CELLS_REDUCED,CORR_PCA]=principal_components(CORTEX2_CELLS,1)
+
+
+CORTEX2_CELLS.images=CORTEX2_CELLS.images{1};
+CORTEX2_CELLS=Clustering(CORTEX2_CELLS,20,'hierarchical');
+
+CORTEX_CELLS_REDUCED.colormap=jet(29);
+CORTEX2_CELLS.colormap=jet(20)
+heatmap_cluster(CORTEX2_CELLS);
+CORTEX_CELLS.spotname=CORTEX_CELLS.spotname';
+CORTEX_CELLS.images{1}=CORTEX_CELLS.images;
+NearNeighbors(CORTEX2_SPOTS,1)
+
+CORTEX2_SPOTS.hexbin_size=6;
+CORTEX2_SPOTS.count_threshold=1;
+DissimilarityTest(SPOTS);
+CORTEX2_CELLS.spotname=CORTEX2_CELLS.Clustering_ID;
+CORTEX2_CELLS.limit=8000;
+gradients(CORTEX2_CELLS,1);
+
+%% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+% 
+%% 
+% 
+% 
+% 
+% 
+% Gradients
+% 
+% 
+
+CELLS.spotname=clusters;
+imagesel=1
+gradients(CELLS,imagesel);
+%% 
+% Enriched genes
+
+type1=19;
+type2=14;
+imagesel=1;
+fa=CORTEX2_CELLS.images
+CORTEX2_CELLS.images={};
+CORTEX2_CELLS.images{1}=fa
+GLOBAL=enrichedgenes(CORTEX2_CELLS,imagesel,9,19)
+%% 
+% Near Neighbors
+
+NearNeighbors(CELLS,imagesel);
+%%
+ENVIROSPOTS=SpotEnvBin(SPOTS)
+
+
+%% Other section
+
+
+[CORTEX_SPOTS]=ROI_draw_onImage(SPOTS,1);
+
+CORTEX_SPOTS.distance=100;
+CORTEX_SPOTS.bandwidth=400;
+Velocity(CORTEX_SPOTS);
+
+%%
+[CORTEX_ALL]=ROI_draw_onImage(SPOTS,1);
+CORTEX_ALL.bandwidth=2;
+CORTEX_ALL.Genes_of_interest={'Pvalb'};
+GeneDensity(CORTEX_ALL)
+densities_correlation(CORTEX_ALL,1)
+CORTEX_ALL.hexbin_size=5
+CORTEX_ALL.count_threshold=2
+DissimilarityTest(CORTEX_ALL)
+CORRMATRIX=NearNeighbors(CORTEX_SPOTS,1)
+
+figure
+gas=heatmap(CORRMATRIX.Properties.RowNames,CORRMATRIX.Properties.VariableNames,table2array(CORRMATRIX),'colormap',...
+    jet(30));
+colormapeditor
+colora= get(gas,'Colormap');
+
+TAB=table2array(CORRMATRIX);
+for ja=1:size(CORRMATRIX,1)
+ TAB(ja,ja)=1000
+end
+
+
+clustergram(TAB,'Columnlabels',CORRMATRIX.Properties.VariableNames,'Rowlabels',CORRMATRIX.Properties.RowNames,...
+    'Colormap',colora)
+##### SOURCE END #####
+--></body></html>

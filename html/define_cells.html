@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB R2019b"><title>Define_cells</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S2 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Define_cells</span></h1><div  class = 'S1'><span>The function define_cells combines the position of cells in the DAPI image and the gene position to define a matisse object defining the expression of each cell</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Input: </span><span>Matisse object contating the spots coordinates and Cellmap</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Output:</span><span> Matisse object defining Cells</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Example</span></div><div  class = 'S1'><span>Here you have the example of how to use the function. First we load the data</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>load (</span><span style="color: rgb(218, 179, 255);">'data\Matisse objects\Spots_mousebrain.mat'</span><span>);</span></span></div></div></div><div  class = 'S3'><span>Then we run the function</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>CELLS=define_cells(SPOTS);</span></span></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Define_cells
+% The function define_cells combines the position of cells in the DAPI image 
+% and the gene position to define a matisse object defining the expression of 
+% each cell
+% 
+% *Input:* Matisse object contating the spots coordinates and Cellmap
+% 
+% *Output:* Matisse object defining Cells
+% 
+% *Example*
+% 
+% Here you have the example of how to use the function. First we load the data
+
+load ('data\Matisse objects\Spots_mousebrain.mat');
+%% 
+% Then we run the function
+
+CELLS=define_cells(SPOTS);
+##### SOURCE END #####
+--></body></html>

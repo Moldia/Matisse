@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB R2019b"><title>Gradients</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S2 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S4 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S5 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S6 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Gradients</span></h1><div  class = 'S1'><span>The function </span><span style=' font-style: italic;'>gradients</span><span> represents the density of cells/genes in a sample in 1D from selected spots</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Input: </span><span>Matisse object + sample selected from the ones included in Matisse (ej.1)</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Parameters in Matisse:</span></div><div  class = 'S1'><span style=' font-weight: bold;'>         </span><span>-Matisse.Gradients_bandwidth: bandwidth of the KDE  representation can be customized</span></div><div  class = 'S1'><span>        - Matisse.Gradients_limits: represents the maximum distance from the origin to consider in the plot. </span></div><div  class = 'S1'><span style=' font-weight: bold;'>Output:</span><span> Gradient plots</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Example</span></div><div  class = 'S1'><span>Here you have the example of how to use the function. First we load the data</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>load (</span><span style="color: rgb(218, 179, 255);">'data\Matisse objects\Spots_mousebrain.mat'</span><span>);</span></span></div></div></div><div  class = 'S3'><span>There are few parameters that can be customized:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>SPOTS.Gradients_bandwidth=200;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre;"><span>SPOTS.Gradients_colormap=parula;</span></span></div></div><div class="inlineWrapper"><div  class = 'S6'><span style="white-space: pre;"><span>SPOTS.Gradients_limit=10000;</span></span></div></div></div><div  class = 'S3'><span>Then we run the function. NOTE THAT: To define the origin of the gradient, a polygon needs to be drawn in the image</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>gradients(SPOTS,1);</span></span></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Gradients
+% The function _gradients_ represents the density of cells/genes in a sample 
+% in 1D from selected spots
+% 
+% *Input:* Matisse object + sample selected from the ones included in Matisse 
+% (ej.1)
+% 
+% *Parameters in Matisse:*
+% 
+% -Matisse.Gradients_bandwidth: bandwidth of the KDE  representation can be 
+% customized
+% 
+% - Matisse.Gradients_limits: represents the maximum distance from the origin 
+% to consider in the plot. 
+% 
+% *Output:* Gradient plots
+% 
+% *Example*
+% 
+% Here you have the example of how to use the function. First we load the data
+
+load ('data\Matisse objects\Spots_mousebrain.mat');
+%% 
+% There are few parameters that can be customized:
+
+SPOTS.Gradients_bandwidth=200;
+SPOTS.Gradients_colormap=parula;
+SPOTS.Gradients_limit=10000;
+%% 
+% Then we run the function. NOTE THAT: To define the origin of the gradient, 
+% a polygon needs to be drawn in the image
+
+gradients(SPOTS,1);
+##### SOURCE END #####
+--></body></html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB R2019b"><title>Fill_matisse</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S2 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S5 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S6 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { color: rgb(64, 64, 64); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 16.996px;  }
+.embeddedOutputsErrorElement {min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+.embeddedOutputsWarningElement{min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+.diagnosticMessage-wrapper {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {color: rgb(255,100,0); text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {color: rgb(230,0,0); text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {white-space: pre; word-wrap: initial; min-height: 18px; max-height: 250px; overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {min-height: 16px;}
+.rightPaneElement .textElement {padding-top: 2px; padding-left: 9px;}</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Fill_matisse</span></h1><div  class = 'S1'><span>The function fill_matisse integrates the spatial information of different samples into a single object, aiming to standardize a format common in the rest of the analysis, the </span><span style=' font-style: italic;'>Matisse </span><span>object. </span></div><div  class = 'S1'><span style=' font-weight: bold;'>Input: </span><span>A list object containing different objects including the information of each sample (one for each sample)</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Output: </span><span>A </span><span style=' font-style: italic;'>Matisse </span><span>object, the standard object used for ISS analysis in this toolbox. </span></div><div  class = 'S1'><span>Previous steps</span></div><div  class = 'S1'><span>Here you have the previous steps you need to do before using the function.</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span style="color: rgb(0, 255, 0);">%We load all the information of the first sample on on SPOTS1</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>decoded_file = </span><span style="color: rgb(218, 179, 255);">'data\humanbrain\ISS_h_brain_03_PreliminaryCalls.csv'</span><span>;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>image = </span><span style="color: rgb(218, 179, 255);">'data\humanbrain\HCA_09_hm_120_c1_stitched-1.tif'</span><span>;    </span><span style="color: rgb(0, 255, 0);">% important for size</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>scale=1; </span><span style="color: rgb(0, 255, 0);">%</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>SPOTS1=ISS_getspots(decoded_file,</span><span style="color: rgb(218, 179, 255);">'genecolumn'</span><span>,1,</span><span style="color: rgb(218, 179, 255);">'XYcolumn'</span><span>,[2,3]);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>SPOTS1.image=image;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>SPOTS1.scale=scale;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span style="color: rgb(0, 255, 0);">%We load all the information of the second sample on SPOTS2</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>decoded_file = </span><span style="color: rgb(218, 179, 255);">'data\humanbrain\HCA10_1_genes_and_coordinates.csv'</span><span>;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>image = </span><span style="color: rgb(218, 179, 255);">'data\humanbrain\HCA_10_1_hm_133_c1_stitched-1.tif.mat.tif'</span><span>;    </span><span style="color: rgb(0, 255, 0);">% important for size</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>scale=1; </span><span style="color: rgb(0, 255, 0);">%</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>SPOTS2=ISS_getspots(decoded_file,</span><span style="color: rgb(218, 179, 255);">'genecolumn'</span><span>,1,</span><span style="color: rgb(218, 179, 255);">'XYcolumn'</span><span>,[2,3]);</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>SPOTS2.image=image;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>SPOTS2.scale=scale;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span style="color: rgb(0, 255, 0);">%And then we combine them into a big object (note that if you have added more samples you need to add them here as well)</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>ALLSPOTS.SPOTS1=SPOTS1;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>ALLSPOTS.SPOTS2=SPOTS2;</span></span></div></div><div class="inlineWrapper"><div  class = 'S4'></div></div></div><div  class = 'S5'><span>This is the example of how to use </span><span style=' font-style: italic;'>fill_matisse</span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre;"><span>SPOTS=fill_matisse(ALLSPOTS);</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsVariableStringElement" uid="DC047DBA" data-testid="output_0" data-width="1481" data-height="422" data-hashorizontaloverflow="false" style="width: 1511px; max-height: 433px;"><div class="textElement"><div><span class="variableNameElement">SPOTS = </span></div><div>  matisse with properties:
+
+                Graphics: 1
+                spotname: {2252073×1 cell}
+                location: [2252073×2 double]
+                  sample: {2252073×1 cell}
+               sample_ID: []
+                  images: {'G:\MATISSE\data\humanbrain\HCA_09_hm_120_c1_stitched-1.tif'  'G:\MATISSE\data\humanbrain\HCA_10_1_hm_133_c1_stitched-1.tif.mat.tif'}
+                   scale: {[1]  [1]}
+        expressionmatrix: []
+         expressionnames: []
+             centroidpos: {}
+                Cellmaps: {}
+              centroidID: {}
+               bandwidth: 200
+             hexbin_size: 300
+                  radius: 300
+                distance: 300
+       Genes_of_interest: {}
+                colormap: [256×3 double]
+         count_threshold: 5
+    segmentation_percent: 95
+           Clustering_ID: []
+                RGB_CODE: []
+         UMAP_clustering: []
+       pciseq_clustering: []
+                   limit: 800
+        CellCallRegionYX: []
+            inefficiency: []
+</div></div></div></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Fill_matisse
+% The function fill_matisse integrates the spatial information of different 
+% samples into a single object, aiming to standardize a format common in the rest 
+% of the analysis, the _Matisse_ object. 
+% 
+% *Input:* A list object containing different objects including the information 
+% of each sample (one for each sample)
+% 
+% *Output:* A _Matisse_ object, the standard object used for ISS analysis in 
+% this toolbox. 
+% 
+% Previous steps
+% 
+% Here you have the previous steps you need to do before using the function.
+
+%We load all the information of the first sample on on SPOTS1
+decoded_file = 'data\humanbrain\ISS_h_brain_03_PreliminaryCalls.csv';
+image = 'data\humanbrain\HCA_09_hm_120_c1_stitched-1.tif';    % important for size
+scale=1; %
+SPOTS1=ISS_getspots(decoded_file,'genecolumn',1,'XYcolumn',[2,3]);
+SPOTS1.image=image;
+SPOTS1.scale=scale;
+%We load all the information of the second sample on SPOTS2
+decoded_file = 'data\humanbrain\HCA10_1_genes_and_coordinates.csv';
+image = 'data\humanbrain\HCA_10_1_hm_133_c1_stitched-1.tif.mat.tif';    % important for size
+scale=1; %
+
+SPOTS2=ISS_getspots(decoded_file,'genecolumn',1,'XYcolumn',[2,3]);
+SPOTS2.image=image;
+SPOTS2.scale=scale;
+
+%And then we combine them into a big object (note that if you have added more samples you need to add them here as well)
+ALLSPOTS.SPOTS1=SPOTS1;
+ALLSPOTS.SPOTS2=SPOTS2;
+
+%% 
+% This is the example of how to use _fill_matisse_
+
+SPOTS=fill_matisse(ALLSPOTS);
+##### SOURCE END #####
+--></body></html>

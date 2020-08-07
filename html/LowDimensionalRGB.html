@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB R2019b"><title>LowDimensionalRGB</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S2 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S4 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px 4px 0px 0px; padding: 6px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S5 { color: rgb(64, 64, 64); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 16.996px;  }
+.embeddedOutputsMatrixElement,.eoOutputWrapper .matrixElement {min-height: 18px; box-sizing: border-box;}
+.embeddedOutputsMatrixElement .matrixElement,.eoOutputWrapper .matrixElement,.rtcDataTipElement .matrixElement {position: relative;}
+.matrixElement .variableValue,.rtcDataTipElement .matrixElement .variableValue {white-space: pre; display: inline-block; vertical-align: top; overflow: hidden;}
+.embeddedOutputsMatrixElement.inlineElement {}
+.embeddedOutputsMatrixElement.inlineElement .topHeaderWrapper {display: none;}
+.embeddedOutputsMatrixElement.inlineElement .veTable .body {padding-top: 0 !important; max-height: 100px;}
+.inlineElement .matrixElement {max-height: 300px;}
+.embeddedOutputsMatrixElement.rightPaneElement {}
+.rightPaneElement .matrixElement,.rtcDataTipElement .matrixElement {overflow: hidden; padding-left: 9px;}
+.rightPaneElement .matrixElement {margin-bottom: -1px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer,.eoOutputWrapper .matrixElement .valueContainer,.rtcDataTipElement .matrixElement .valueContainer {white-space: nowrap; margin-bottom: 3px;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis.hide,.embeddedOutputsMatrixElement .matrixElement .verticalEllipsis.hide,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis.hide,.eoOutputWrapper .matrixElement .verticalEllipsis.hide,.rtcDataTipElement .matrixElement .valueContainer .horizontalEllipsis.hide,.rtcDataTipElement .matrixElement .verticalEllipsis.hide {display: none;}
+.embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .verticalEllipsis, .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer.hideEllipses .horizontalEllipsis {display:none;}
+.embeddedOutputsMatrixElement .matrixElement .valueContainer .horizontalEllipsis,.eoOutputWrapper .matrixElement .valueContainer .horizontalEllipsis {margin-bottom: -3px;}
+.eoOutputWrapper .embeddedOutputsVariableMatrixElement .matrixElement .valueContainer {cursor: default !important;}
+.embeddedOutputsVariableElement {white-space: pre-wrap; word-wrap: break-word; min-height: 18px; max-height: 250px; overflow: auto;}
+.variableElement {}
+.embeddedOutputsVariableElement.inlineElement {}
+.inlineElement .variableElement {}
+.embeddedOutputsVariableElement.rightPaneElement {min-height: 16px;}
+.rightPaneElement .variableElement {padding-top: 2px; padding-left: 9px;}
+.variableNameElement {margin-bottom: 3px; display: inline-block;}
+.matrixElement .horizontalEllipsis,.rtcDataTipElement .matrixElement .horizontalEllipsis {display: inline-block; margin-top: 3px; width: 30px; height: 12px; background-repeat: no-repeat; background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB0AAAAJCAYAAADO1CeCAAAAJUlEQVR42mP4//8/A70xw0i29BUDFPxnAEtTW37wWDqakIa4pQDvOOG89lHX2gAAAABJRU5ErkJggg==");}
+.matrixElement .verticalEllipsis,.textElement .verticalEllipsis,.rtcDataTipElement .matrixElement .verticalEllipsis,.rtcDataTipElement .textElement .verticalEllipsis {margin-left: 35px; width: 12px; height: 30px; background-repeat: no-repeat; background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAZCAYAAAAIcL+IAAAALklEQVR42mP4//8/AzGYgWyFMECMwv8QddRS+P//KyimlmcGUOFoOI6GI/UVAgDnd8Dd4+NCwgAAAABJRU5ErkJggg==");}
+.embeddedOutputsErrorElement {min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+.embeddedOutputsWarningElement{min-height: 18px; max-height: 250px; overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+.diagnosticMessage-wrapper {font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {color: rgb(255,100,0); text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {color: rgb(230,0,0); text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {white-space: pre; word-wrap: initial; min-height: 18px; max-height: 250px; overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {padding-top: 3px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {min-height: 16px;}
+.rightPaneElement .textElement {padding-top: 2px; padding-left: 9px;}</style></head><body><div class = rtcContent><h1  class = 'S0'><span>LowDimensionalRGB</span></h1><div  class = 'S1'><span>The function LowDimensionalRGB is used to represent the complexity of cell expression in an RGB schema, by representing just the top 3 components of the tSNE done on the expression of cells/bins</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Input: - </span><span>Matisse object (it can be both cells or bins) </span></div><div  class = 'S1'><span>          - Method used ('umap','tsne' or 'pca')</span></div><div  class = 'S1'><span>          - option for plotting or not the expression of every gene ('genexpression','no')</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Parameters in Matisse:</span></div><div  class = 'S1'><span style=' font-weight: bold;'>         </span><span>-Matisse.count_threshold: minimum expression that a cell/bin needs to be included on the analysis. </span></div><div  class = 'S1'><span style=' font-weight: bold;'>Output:</span><span> Figure representing the top 3 tsne compnents in RGB</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Example</span></div><div  class = 'S1'><span>Here you have the example of how to use the function. First we load the bins, summarized in a matisse object</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>load (</span><span style="color: rgb(218, 179, 255);">'data\Matisse objects\bins_mousebins.mat'</span><span>);</span></span></div></div></div><div  class = 'S3'><span>There are few parameters that can be customized:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>BINS.count_threshold=5;</span></span></div></div></div><div  class = 'S3'><span>Then we run the function. Three methods can be used for LowDimensional representation in RGB,  including 'umap','tsne' and 'pca'. This method needs to be specified in the second position. In the third position we need to specifiy wether one wants the low dimensional plot for the expression of individual genes ( by specifying 'genexpression') or not (by adding on the third term a 'no')</span></div><div  class = 'S1'><span>. NOTE THAT: You need to select genes that you want to include in the analysis. </span></div><div class="CodeBlock"><div class="inlineWrapper outputs"><div  class = 'S4'><span style="white-space: pre;"><span>LowDimensionalRGB(BINS,</span><span style="color: rgb(218, 179, 255);">'umap'</span><span>,</span><span style="color: rgb(218, 179, 255);">'no'</span><span>);</span></span></div><div  class = 'S5'><div class="inlineElement eoOutputWrapper embeddedOutputsTextMatrixElement embeddedOutputsVariableMatrixElement" uid="23BECE76" data-testid="output_0" data-width="1481" style="width: 1511px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="matrixElement veSpecifier saveLoad" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="veVariableName variableNameElement" style="width: 1481px; white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="headerElementClickToInteract" style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><span style="white-space: normal; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">genes = </span><span class="veVariableValueSummary headerElement" style="white-space: normal; font-style: normal; color: rgb(179, 179, 179); font-size: 12px;">114×1 cell array</span></div></div><div class="valueContainer" data-layout="{&quot;totalRows&quot;:&quot;114&quot;,&quot;totalColumns&quot;:&quot;1&quot;}" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"><div class="variableValue" style="width: 119px; white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;">'3110035E14Rik'    <br>'Adarb2'           <br>'Adcy2'            <br>'Alcam'            <br>'Arpp19'           <br>'Atp1a3'           <br>'Bdnf'             <br>'Brinp3'           <br>'Cacna2d3'         <br>'Calb1'            <br></div><div class="horizontalEllipsis hide" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div><div class="verticalEllipsis" style="white-space: pre; font-style: normal; color: rgb(64, 64, 64); font-size: 12px;"></div></div></div></div><div class="inlineElement eoOutputWrapper embeddedOutputsErrorElement" uid="DD183D23" data-testid="output_1" data-width="1481" data-height="57" data-hashorizontaloverflow="false" style="width: 1511px; max-height: 261px;"><div class="diagnosticMessage-wrapper diagnosticMessage-errorType"><div class="diagnosticMessage-messagePart">Index exceeds the number of array elements (0).</div><div class="diagnosticMessage-stackPart"><br>Error in tsneRGB (line 50)<br>if ismember(varargin(1),'tsne')</div></div></div></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% LowDimensionalRGB
+% The function LowDimensionalRGB is used to represent the complexity of cell 
+% expression in an RGB schema, by representing just the top 3 components of the 
+% tSNE done on the expression of cells/bins
+% 
+% *Input: -* Matisse object (it can be both cells or bins) 
+% 
+% - Method used ('umap','tsne' or 'pca')
+% 
+% - option for plotting or not the expression of every gene ('genexpression','no')
+% 
+% *Parameters in Matisse:*
+% 
+% -Matisse.count_threshold: minimum expression that a cell/bin needs to be included 
+% on the analysis. 
+% 
+% *Output:* Figure representing the top 3 tsne compnents in RGB
+% 
+% *Example*
+% 
+% Here you have the example of how to use the function. First we load the bins, 
+% summarized in a matisse object
+
+load ('data\Matisse objects\bins_mousebins.mat');
+%% 
+% There are few parameters that can be customized:
+
+BINS.count_threshold=5;
+%% 
+% Then we run the function. Three methods can be used for LowDimensional representation 
+% in RGB,  including 'umap','tsne' and 'pca'. This method needs to be specified 
+% in the second position. In the third position we need to specifiy wether one 
+% wants the low dimensional plot for the expression of individual genes ( by specifying 
+% 'genexpression') or not (by adding on the third term a 'no')
+% 
+% . NOTE THAT: You need to select genes that you want to include in the analysis. 
+
+LowDimensionalRGB(BINS,'umap','no');
+##### SOURCE END #####
+--></body></html>

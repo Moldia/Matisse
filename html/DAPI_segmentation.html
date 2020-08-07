@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB R2019b"><title>DAPI_segmentation</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S2 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>DAPI_segmentation</span></h1><div  class = 'S1'><span>The function DAPI_segmentation segments a DAPI image and obtains cell boundries after a watershed segmentation</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Input: </span><span>Matisse object </span></div><div  class = 'S1'><span style=' font-weight: bold;'>Parameters in Matisse:</span></div><div  class = 'S1'><span style=' font-weight: bold;'>         </span><span>-Matisse.segmentation percent: Assigns all values of an image above a percentile of the image intesity to a true DAPI signal. It'is 98 by default.</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Output:</span><span> Matisse object with Cellmap and centroid coordinates.</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Example</span></div><div  class = 'S1'><span>Here you have the example of how to use the function. First we load the data</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>load (</span><span style="color: rgb(218, 179, 255);">'data\Matisse objects\Spots_mousebrain.mat'</span><span>);</span></span></div></div></div><div  class = 'S3'><span>There are few parameters that can be customized,like segmentation percent, which indicates the threshold intensity (in percentage) for considering a pixel as a possible cell:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>SPOTS.segmentation_percent=98;</span></span></div></div></div><div  class = 'S3'><span>Then we run the function</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>SPOTS=DAPI_segmentation(SPOTS);</span></span></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% DAPI_segmentation
+% The function DAPI_segmentation segments a DAPI image and obtains cell boundries 
+% after a watershed segmentation
+% 
+% *Input:* Matisse object 
+% 
+% *Parameters in Matisse:*
+% 
+% -Matisse.segmentation percent: Assigns all values of an image above a percentile 
+% of the image intesity to a true DAPI signal. It'is 98 by default.
+% 
+% *Output:* Matisse object with Cellmap and centroid coordinates.
+% 
+% *Example*
+% 
+% Here you have the example of how to use the function. First we load the data
+
+load ('data\Matisse objects\Spots_mousebrain.mat');
+%% 
+% There are few parameters that can be customized,like segmentation percent, 
+% which indicates the threshold intensity (in percentage) for considering a pixel 
+% as a possible cell:
+
+SPOTS.segmentation_percent=98;
+%% 
+% Then we run the function
+
+SPOTS=DAPI_segmentation(SPOTS);
+##### SOURCE END #####
+--></body></html>

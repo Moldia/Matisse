@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB R2019b"><title>Normalize_cells</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S2 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 4px; padding: 6px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { margin: 10px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>Normalize_cells</span></h1><div  class = 'S1'><span>The function normalize</span><span style=' font-style: italic;'>_cells </span><span>filters the cells/bins using different methods</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Input: </span><span>Matisse object (it can be both cells or bins) </span></div><div  class = 'S1'><span style=' font-weight: bold;'>Matisse parameters: </span><span>some parameters need to be adjusted before filtering:</span></div><div  class = 'S1'><span>            -NC_method: normalization method, can be 'standarize','log2' or 'log10'</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Output:</span><span> Matisse object with normalized data</span></div><div  class = 'S1'><span style=' font-weight: bold;'></span></div><div  class = 'S1'><span style=' font-weight: bold;'>Example</span></div><div  class = 'S1'><span>Here you have the example of how to use the function. First we load the bins, summarized in a matisse object</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>load (</span><span style="color: rgb(218, 179, 255);">'data\Matisse objects\bins_mousebins.mat'</span><span>);</span></span></div></div></div><div  class = 'S3'><span>Then we adjust the parameters starting with NC:</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>BINS.NC_method=</span><span style="color: rgb(218, 179, 255);">'standardize'</span><span>;</span></span></div></div></div><div  class = 'S3'><span>Then we run the function</span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>BINS_Normalized=Normalize_cells(BINS);</span></span></div></div></div><div  class = 'S3'></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Normalize_cells
+% The function normalize__cells_ filters the cells/bins using different methods
+% 
+% *Input:* Matisse object (it can be both cells or bins) 
+% 
+% *Matisse parameters:* some parameters need to be adjusted before filtering:
+% 
+% -NC_method: normalization method, can be 'standarize','log2' or 'log10'
+% 
+% *Output:* Matisse object with normalized data
+% 
+% 
+% 
+% *Example*
+% 
+% Here you have the example of how to use the function. First we load the bins, 
+% summarized in a matisse object
+
+load ('data\Matisse objects\bins_mousebins.mat');
+%% 
+% Then we adjust the parameters starting with NC:
+
+BINS.NC_method='standardize';
+%% 
+% Then we run the function
+
+BINS_Normalized=Normalize_cells(BINS);
+%% 
+%
+##### SOURCE END #####
+--></body></html>

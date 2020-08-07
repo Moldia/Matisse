@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding="utf-8"?>
+
+<toc version="2.0">
+<!-- First tocitem specifies top level in Help browser Contents pane -->
+<!-- This can be a roadmap page, as shown below, or a content page -->
+    <tocitem target="Fill_matisse.html">MyToolbox Toolbox
+        <!-- Nest tocitems to create hierarchical entries in  Contents-->
+        <!-- To include icons, use the following syntax for tocitems: -->
+        <!-- <tocitem target="foo.html" image="HelpIcon.NAME"> -->
+        <!-- Title-of-Section </tocitem> -->
+        <!-- where NAME is one of the following (use capital letters): -->
+        <!-- FUNCTION, USER_GUIDE, EXAMPLES, BLOCK, GETTING_STARTED, -->
+        <!-- DEMOS, RELEASE_NOTES --> 
+        <!-- Icon images used for these entries are also stored in -->
+        <!-- matlabroot/toolbox/matlab/icons -->
+        <!-- A Getting Started Guide usually comes first -->
+        <tocitem target="define_cells.html" image="HelpIcon.GETTING_STARTED">
+            Define_cells
+            </tocitem>
+            <tocitem target="Coexpression.html">Coexpression
+            </tocitem>
+            <tocitem target="cell_subset.html">cell_subset
+               </tocitem>
+            <tocitem target="Clustering.html">Clustering
+            </tocitem>
+            <tocitem target="correlation_between_datasets">correlation_between_datasets
+            </tocitem>
+            <tocitem target="DAPI_segmentation.html">DAPI_segmentation
+            </tocitem>
+            <tocitem target="expression_clusters.html">expression_clusters
+            </tocitem>
+            <tocitem target="Filter_cells.html">filter_cells
+            </tocitem>
+            <tocitem target="gene_subset.html">gene_subset
+            </tocitem>
+            <tocitem target="GeneDensity.html">GeneDensity
+            </tocitem>
+            <tocitem target="gradients.html">gradients
+            </tocitem>
+            <tocitem target="heatmap_cluster.html">heatmap_cluster
+            </tocitem>
+            <tocitem target="load_scRNAseq.html">load_scRNAseq
+            </tocitem>
+            <tocitem target="LowDimensionalRGB.html">LowDimensionalRGB
+            </tocitem>
+            <tocitem target="MergeObjects.html">MergeObjects
+            </tocitem>
+            <tocitem target="Normalize_cells.html">Normalize_cells
+            </tocitem>
+             <tocitem target="OverlappingBins.html">OverlappingBins
+            </tocitem>
+             <tocitem target="OverlayTwoDensities.html">OverlayTwoDensities
+            </tocitem>
+             <tocitem target="pciseq.html">pciseq
+            </tocitem>
+             <tocitem target="PlotTotalCounts.html">PlotTotalCounts
+            </tocitem>
+             <tocitem target="principal_components.html">principal_components
+            </tocitem>
+             <tocitem target="ROI_draw_onImage.html">ROI_draw_onImage
+            </tocitem>
+             <tocitem target="Normalize_cells.html">Normalize_cells
+            </tocitem>
+             <tocitem target="show_spots.html">show_spots
+            </tocitem>
+             <tocitem target="SpotEnvBins.html">SpotEnvBins
+            </tocitem>
+        </tocitem>
+        <!-- User Guide comes next -->
+</toc>

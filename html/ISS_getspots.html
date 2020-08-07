@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB R2019b"><title>ISS_getspots</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 28.8px; min-height: 0px; white-space: pre-wrap; color: rgb(213, 80, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 24px; font-weight: 400; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(0, 0, 0); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.CodeBlock { background-color: #F7F7F7; margin: 10px 0 10px 0;}
+.S2 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 1px solid rgb(233, 233, 233); border-bottom: 0px none rgb(0, 0, 0); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S3 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 0px none rgb(0, 0, 0); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S4 { border-left: 1px solid rgb(233, 233, 233); border-right: 1px solid rgb(233, 233, 233); border-top: 0px none rgb(0, 0, 0); border-bottom: 1px solid rgb(233, 233, 233); border-radius: 0px 0px 4px 4px; padding: 0px 45px 4px 13px; line-height: 16.996px; min-height: 18px; white-space: nowrap; color: rgb(0, 0, 0); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }</style></head><body><div class = rtcContent><h1  class = 'S0'><span>ISS_getspots</span></h1><div  class = 'S1'><span>The function ISS_getspots reads a typical ISS output, containing the coordinates in XY for all the genes detected in a sample, and saves it in a list object (SPOTS1). This function expects the genename to be in the second column of a .csv and XY to be on the 3rd and 4th column respectively. </span></div><div  class = 'S1'><span style=' font-weight: bold;'>Input: </span><span>Pathway to a csv</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Parameters: </span><span>the column position of gene names, as well as the columns position of XY coordinates in the input matrix needs to be specified</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Output: </span><span>List object containing all the gene names and coordinates. </span></div><div  class = 'S1'><span>Here we can find an example of how to use this function: </span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S2'><span style="white-space: pre;"><span>decoded_file = </span><span style="color: rgb(218, 179, 255);">'data\mousebrain\QT_0.2_details_noNNNN.csv'</span><span>;</span></span></div></div><div class="inlineWrapper"><div  class = 'S3'><span style="white-space: pre;"><span>image = </span><span style="color: rgb(218, 179, 255);">'\data\mousebrain\wholeimage.tif'</span><span>;    </span></span></div></div><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre;"><span>SPOTS1=ISS_getspots(decoded_file,</span><span style="color: rgb(218, 179, 255);">'genecolumn'</span><span>,2,</span><span style="color: rgb(218, 179, 255);">'XYcolumn'</span><span>,[3,4]);</span></span></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% ISS_getspots
+% The function ISS_getspots reads a typical ISS output, containing the coordinates 
+% in XY for all the genes detected in a sample, and saves it in a list object 
+% (SPOTS1). This function expects the genename to be in the second column of a 
+% .csv and XY to be on the 3rd and 4th column respectively. 
+% 
+% *Input:* Pathway to a csv
+% 
+% *Parameters:* the column position of gene names, as well as the columns position 
+% of XY coordinates in the input matrix needs to be specified
+% 
+% *Output:* List object containing all the gene names and coordinates. 
+% 
+% Here we can find an example of how to use this function: 
+
+decoded_file = 'data\mousebrain\QT_0.2_details_noNNNN.csv';
+image = '\data\mousebrain\wholeimage.tif';    
+SPOTS1=ISS_getspots(decoded_file,'genecolumn',2,'XYcolumn',[3,4]);
+##### SOURCE END #####
+--></body></html>
