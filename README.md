@@ -4,8 +4,7 @@
 
 ## Description
 The Matlab Analysis Toolbox for Spatially resolved transcriptomics aims to provide an easy to use tool for performing a initial analyis for spot-based technologies in the field of Spatially-resolved transcriptomics, with focus on In Situ Sequencing experiments. Currently it is design to be able to analyze both non-segmented and segmented datasets, following this structure:
-![GitHub Logo](/images/workflow.jpg)
-Format: ![Alt Text](url)
+![Alt text](images/workflow.jpg?raw=true "Workflow of Matisse")
 
 # System Requirements
 There are not any specific requirement in order to use this toolobox. The toobox as been tested in MATLAB R2019a and R2019b using Windows. 
