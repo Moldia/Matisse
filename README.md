@@ -8,7 +8,7 @@ The Matlab Analysis Toolbox for Spatially resolved transcriptomics aims to provi
 ![Alt text](images/workflow.jpg?raw=true "Workflow of Matisse")
 
 # System Requirements
-There are not any specific requirement in order to use this toolobox. The toobox as been tested in MATLAB R2019a and R2019b using Windows. 
+The toolbox requires two add-ons: Image Processing Toolbox, Paralel Computing Toolbox and Bioinformatics Toolbox. The toobox as been tested in MATLAB R2019a and R2019b using Windows. 
 
 # Examples
-Several examples of the use of the toolbox can be found in the folder '\Examples' . Please take as a reference MATISSE_EXAMPLE_mousebrain.mlx
+Several examples of the use of the toolbox can be found in the folder '\Examples' . Please take as a reference MATISSE_EXAMPLE_mousebrain.mlx to start your analysis. 
